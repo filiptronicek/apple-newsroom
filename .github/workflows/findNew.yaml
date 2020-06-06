@@ -1,0 +1,28 @@
+# /.github/workflows/daily.yml
+on:
+  schedule:
+    - cron:  '*/15 * * * *' # every fifteen minuntes
+name: Check for new articles
+jobs:
+  build:
+    name: Update data
+    runs-on: ubuntu-latest
+    steps:
+    - name: Set up Python 3.8
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.8
+    - uses: actions/checkout@master
+    - name: Download dependencies from requirements.txt
+      run: pip install -r "requirements.txt"
+    - name: Check and tweet
+      run: python main.py 
+      env:
+        API_key: ${{ secrets.API_KEY }}
+        CONSUMER_KEY: ${{ secrets.CONSUMER_KEY }}
+        CONSUMER_SECRET: ${{ secrets.CONSUMER_SECRET }}
+        ACCESS_KEY: ${{ secrets.ACCESS_KEY }}
+        ACCESS_SECRET: ${{ secrets.ACCESS_SECRET }}
+    - uses: mikeal/publish-to-github-action@master
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
