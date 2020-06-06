@@ -1,8 +1,6 @@
 from twython import Twython
 from os import environ as env
 
-
-
 def tweet(tweetText:str):
     if env.get('CONSUMER_KEY') is None:
         from creds import API_key, CONSUMER_KEY, CONSUMER_SECRET, ACCESS_KEY, ACCESS_SECRET
