@@ -17,4 +17,3 @@ def prprTxt():
     tweetText = cut(entry.summary.replace("<br/>", ". ").replace("<br />", ". ").split("Press Contacts")[0])
     tweetText += "\n"+shorten(entry.link)
     return tweetText
-print(prprTxt())
