@@ -22,7 +22,7 @@ def prprTxt(entry):
 def check():
     with open('used.txt') as f:
         used=f.readlines()
-    for i,entryN in enumerate(NewsFeed.entries[:5]):
+    for entryN in enumerate(NewsFeed.entries[:5]):
         id = entryN.id.split("/")[-1]
         usedIds = []
         for ind in used:
