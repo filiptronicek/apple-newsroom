@@ -7,7 +7,7 @@ NewsFeed = feedparser.parse("https://www.apple.com/newsroom/rss-feed.rss")
 
 exShrt = "chl.li/xXxXx"
 
-def cut(content, limit = 280):
+def cut(content, limit = 250):
     moreTxt = "..."
     limit = limit - len(moreTxt) - len(exShrt)
     if len(content) >= limit:
@@ -35,6 +35,3 @@ def check():
             tweet(prprTxt(entryN))
             with open("used.txt", "a") as f:
                 f.writelines(id+"\n")
-        
-
-check()

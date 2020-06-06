@@ -1,4 +1,6 @@
-from get import prprTxt
-from tweet import tweet
+from get import check
 
-tweet(prprTxt())
+try:
+    check()
+except Exception as e:
+    print(e)
