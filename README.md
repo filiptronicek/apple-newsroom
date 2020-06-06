@@ -1,2 +1,5 @@
 # apple-newsroom
- A Twitter bot of the Apple newsroom
+
+## WIP
+
+A Twitter bot of the Apple newsroom
