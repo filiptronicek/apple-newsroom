@@ -1,4 +1,4 @@
-# apple-newsroom
+# Apple Newsroom
 
 A Twitter bot of the Apple newsroom
 
