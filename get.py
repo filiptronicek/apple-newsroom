@@ -1,6 +1,6 @@
 import feedparser
 from shorten import shorten
-
+import time
 from tweet import tweet
 
 NewsFeed = feedparser.parse("https://www.apple.com/newsroom/rss-feed.rss")
@@ -23,7 +23,7 @@ def check():
     with open('used.txt') as f:
         used=f.readlines()
     for entryN in enumerate(NewsFeed.entries[:5]):
-        id = entryN.id.split("/")[-1]
+        id = entryN[1].id.split("/")[-1]
         usedIds = []
         for ind in used:
             usedIds.append(ind.split("\n")[0])
@@ -32,6 +32,6 @@ def check():
             pass
         else:
             print("New article!")
-            tweet(prprTxt(entryN))
+            tweet(prprTxt(entryN[1]))
             with open("used.txt", "a") as f:
                 f.writelines(id+"\n")
