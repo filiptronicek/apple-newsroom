@@ -2,7 +2,8 @@
 on:
   schedule:
     - cron:  '*/30 * * * *' # every fifteen minuntes
-  push
+  push:
+    branches: master
 name: Check for new articles
 jobs:
   build:
